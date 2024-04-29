@@ -13,8 +13,14 @@ int main(void)
 
 	if (isatty(STDIN_FILENO))
 		printf("> ");
-	while ((n = getline(&cmd, &len, stdin)) != -1)
+	while (1)
 	{
+		n = getline(&cmd, &len, stdin);
+		if (n == -1) {
+			perror("Error reading line");
+			free(cmd);
+			exit(1);
+		}
 		cmd[n - 1] = '\0';  /* Remove newline character */
 		if (fork() == 0)
 		{
