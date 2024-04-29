@@ -31,6 +31,7 @@ int main(void)
 		if (fork() == 0)
 		{
 			execute_command(cmd);
+			free(cmd);
 			exit(0);
 		}
 		else
