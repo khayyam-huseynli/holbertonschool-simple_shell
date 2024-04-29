@@ -1,48 +1,30 @@
 #include "main.h"
 
 /**
- * execute_command - Executes a command
- * @cmd: The command to execute
+ * execute_cmd - executes a command
+ * @cmd: the command to execute
+ *
+ * Return: 0 on success, 1 on failure
  */
 
-void execute_command(char *cmd)
+int execute_cmd(char *cmd)
 {
-	char **args;
-	char *token;
-	int i = 0, num_tokens = 0;
+	char *argv[2];
+	int status;
 
-	/* First, count the number of tokens in the command */
-	token = strtok(cmd, " ");
-	while (token != NULL)
+	argv[0] = cmd;
+	argv[1] = NULL;
+
+	if (fork() == 0)
 	{
-		num_tokens++;
-		token = strtok(NULL, " ");
+		execve(cmd, argv, NULL);
+		perror(cmd);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		wait(&status);
 	}
 
-	/* Allocate memory for args based on the number of tokens */
-	args = malloc(sizeof(char *) * (num_tokens + 1));
-	if (args == NULL)
-	{
-		perror("Error allocating memory");
-		exit(1);
-	}
-
-	/* Tokenize the command again and fill the args array */
-	i = 0;
-	token = strtok(cmd, " ");
-	while (token != NULL)
-	{
-		args[i] = token;
-		i++;
-		token = strtok(NULL, " ");
-	}
-	args[i] = NULL;
-
-	if (execve(args[0], args, environ) == -1)
-	{
-		perror("Error executing command");
-	}
-
-	/* Free the allocated memory */
-	free(args);
+	return (0);
 }

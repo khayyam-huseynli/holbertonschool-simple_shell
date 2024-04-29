@@ -8,10 +8,7 @@
 #include <sys/wait.h>
 
 #define MAX_CMD_LEN 256
-#define MAX_ARGS 16
 
-extern char **environ;
-
-void execute_command(char *cmd);
+int execute_cmd(char *cmd);
 
 #endif
