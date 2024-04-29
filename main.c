@@ -16,18 +16,6 @@ int main(void)
 	while ((n = getline(&cmd, &len, stdin)) != -1)
 	{
 		cmd[n - 1] = '\0';  /* Remove newline character */
-		/* Handle 'exit' command */
-		if (strcmp(cmd, "exit") == 0)
-		{
-			free(cmd);
-			exit(0);
-		}
-		/* Ignore special characters */
-		if (cmd[0] == '^')
-		{
-			free(cmd);
-			continue;
-		}
 		if (fork() == 0)
 		{
 			execute_command(cmd);
