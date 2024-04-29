@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * main - Main function
+ * main - a simple shell that can run commands
  *
- * Return: 0 on success
+ * Return: 0 on success, 1 on failure
  */
 
 int main(void)
 {
-	char *cmd = NULL;
+	char *line = NULL;
 	size_t len = 0;
 	ssize_t read;
 	int interactive = isatty(STDIN_FILENO);
@@ -18,21 +18,17 @@ int main(void)
 		if (interactive)
 			printf("Xshell> ");
 
-		read = getline(&cmd, &len, stdin);
+		read = getline(&line, &len, stdin);
 		if (read == -1)
 		{
 			if (interactive)
 				printf("\n");
-			free(cmd);
+			free(line);
 			exit(EXIT_SUCCESS);
 		}
 
-		/** Remove trailing newline */
-		if (cmd[read - 1] == '\n')
-			cmd[read - 1] = '\0';
-
-		execute_cmd(cmd);
+		process_line(line);
 	}
-	free(cmd);
+	free(line);
 	return (0);
 }

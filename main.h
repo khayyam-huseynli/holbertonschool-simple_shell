@@ -10,5 +10,6 @@
 #define MAX_CMD_LEN 256
 
 int execute_cmd(char *cmd);
+int process_line(char *line);
 
 #endif
