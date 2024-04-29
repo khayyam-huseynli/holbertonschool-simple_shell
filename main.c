@@ -28,7 +28,8 @@ int main(void)
 		}
 
 		/** Remove trailing newline */
-		cmd[strcspn(cmd, "\n")] = 0;
+		if (cmd[read - 1] == '\n')
+			cmd[read - 1] = '\0';
 
 		execute_cmd(cmd);
 	}
