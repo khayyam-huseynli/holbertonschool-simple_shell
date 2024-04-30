@@ -27,6 +27,10 @@ int main(void)
 			exit(EXIT_SUCCESS);
 		}
 
+		if (strcmp(line, "env\n") == 0)
+		{
+            		print_environment();
+        	}
 		process_line(line);
 	}
 	free(line);
