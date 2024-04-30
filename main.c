@@ -6,7 +6,7 @@
  * Return: 0 on success, 1 on failure
  */
 
-int main(void)
+int main(char *envp[])
 {
 	char *line = NULL;
 	size_t len = 0;
@@ -27,7 +27,7 @@ int main(void)
 			exit(EXIT_SUCCESS);
 		}
 
-		process_line(line);
+		process_line(line,envp);
 	}
 	free(line);
 	return (0);
