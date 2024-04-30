@@ -6,7 +6,7 @@
  * Return: 0 on success, 1 on failure
  */
 
-int main(char *envp[])
+int main(void)
 {
 	char *line = NULL;
 	size_t len = 0;
