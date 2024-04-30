@@ -12,10 +12,9 @@
 #define MAX_CMD_LEN 256
 
 int execute_cmd(char *cmd);
-int process_line(char *line, char *envp[]);
+int process_line(char *line);
 char *get_file_loc(char *path, char *file_name);
 int slash_checker(const char *str);
 char *get_file_path(char *file_name);
-void print_environment(char * envp[]);
 
 #endif
