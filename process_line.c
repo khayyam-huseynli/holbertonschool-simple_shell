@@ -8,7 +8,7 @@
  * Return: 0 on success, 1 on failure
  */
 
-int process_line(char *line, char *envp[])
+int process_line(char *line)
 {
 	char *cmds[MAX_CMD_LEN];
 	char *cmd;
@@ -23,12 +23,6 @@ int process_line(char *line, char *envp[])
 		cmd = strtok(NULL, " \n");
 	}
 
-	if (num_cmds > 0 && strcmp(cmds[0], "env") == 0)
-	{
-       		print_environment(envp);
-        }
-        return 1;  
-    }
 	/** Execute each command */
 	for (i = 0; i < num_cmds; i++)
 	{
