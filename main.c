@@ -27,7 +27,7 @@ int main(char *envp[])
 			exit(EXIT_SUCCESS);
 		}
 
-		process_line(line,envp);
+		process_line(line);
 	}
 	free(line);
 	return (0);
