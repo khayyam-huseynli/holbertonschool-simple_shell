@@ -23,15 +23,18 @@ int process_line(char *line)
 		cmd = strtok(NULL, " \n");
 	}
 
+	if (num_cmds > 0 && strcmp(cmds[0], "env") == 0)
+	{
+       		print_environment(envp);
+        }
+        return 1;  
+    }
 	/** Execute each command */
 	for (i = 0; i < num_cmds; i++)
 	{
 		execute_cmd(cmds[i]);
 		free(cmds[i]);
 	}
-	 if (strcmp(line, "env\n") == 0)
-	 {
-        	print_environment();
-   	 }
+	
 	return (0);
 }
