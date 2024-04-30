@@ -29,6 +29,9 @@ int process_line(char *line)
 		execute_cmd(cmds[i]);
 		free(cmds[i]);
 	}
-
+	 if (strcmp(line, "env\n") == 0)
+	 {
+        	print_environment();
+   	 }
 	return (0);
 }
