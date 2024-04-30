@@ -64,3 +64,4 @@ char *get_file_loc(char *path, char *file_name)
 }
 
 
+Solved the problem with git push
