@@ -16,5 +16,6 @@ int process_line(char *line);
 char *get_file_loc(char *path, char *file_name);
 int slash_checker(const char *str);
 char *get_file_path(char *file_name);
+void print_environment(void);
 
 #endif
