@@ -1,4 +1,4 @@
-## Simple Shell
+# Simple Shell
 ## holbertonschool-simple_shell
 
 ![logo](https://opensource.com/sites/default/files/lead-images/bash_command_line.png)
@@ -17,7 +17,7 @@
  $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ```
 ```bash
- ./simple_shell
+ ./hsh
 ```
 
 ## How will it work ?
@@ -26,15 +26,8 @@
    The user can enter simple commands, and the shell will attempt to execute them. If the command cannot be executed, an error message is displayed, and the prompt is
    shown again.
 
-## Features of the program
-
-  - Prompt: Displays a prompt #cisfun$ and waits for the user to enter a command. 
-  - Command Execution: Executes a single-word command by forking a new process and using execve(). 
-  - Error Handling: If the command cannot be executed, an error message is displayed. 
-  - End-of-File Handling: The shell exits gracefully when Ctrl+D (EOF) is encountered. 
-  - Process Management: Waits for child processes to complete before continuing.
-
 ## Steps of the program
+    
      The shell operates in a loop with the following steps:
 
    - Display Prompt: Prints the prompt #cisfun$ to indicate that the shell is ready to receive a command.
@@ -45,12 +38,53 @@
    - Wait for Completion: In the parent process, waits for the child to complete.
    - Loop: Repeats the process, displaying the prompt again.
 
+## Testing
+### In interactive mode:
+```bash
+$ ./hsh
+($) /bin/ls
+hsh main.c shell.c
+($)
+($) exit
+$
+```
+### In non-interactive mode:
+```bash
+$ echo "/bin/ls" | ./hsh
+hsh main.c shell.c test_ls_2
+$
+$ cat test_ls_2
+/bin/ls
+/bin/ls
+$
+$ cat test_ls_2 | ./hsh
+hsh main.c shell.c test_ls_2
+hsh main.c shell.c test_ls_2
+$
+```
+
 ## Error Handling
 - If execve() cannot find or execute the specified command, the shell displays an error message, including a brief explanation of the error (using perror()), and then
   returns to the prompt.
-
 - If the fork() call fails, the shell exits with an error message.
-
+- Unless specified otherwise, your program must have the exact same output as sh (/bin/sh) as well as the exact same error output.
+- The only difference is when you print an error, the name of the program must be equivalent to your argv[0] (See below)
+#### Example of error with **sh**:
+```bash
+$ echo "qwerty" | /bin/sh
+/bin/sh: 1: qwerty: not found
+$ echo "qwerty" | /bin/../bin/sh
+/bin/../bin/sh: 1: qwerty: not found
+$
+```
+#### Same error with your program **hsh**:
+```bash
+$ echo "qwerty" | ./hsh
+./hsh: 1: qwerty: not found
+$ echo "qwerty" | ./././hsh
+./././hsh: 1: qwerty: not found
+$
+```
 ## How to Exit ?
   To exit the shell, you can either:
 
