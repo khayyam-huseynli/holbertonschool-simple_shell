@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void print_environment(void) {
-    extern char **environ;
-    char **env; 
-    for (env = environ; *env != NULL; env++) {
-        printf("%s\n", *env);
+void print_environment(char * envp[])
+{
+    int i;
+ 
+    for (i = 0; envp[i] != NULL; i++)
+    {    
+        printf("\n%s", envp[i]);
     }
 }
