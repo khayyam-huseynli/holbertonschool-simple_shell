@@ -49,11 +49,11 @@ char *get_file_loc(char *path, char *file_name)
 		strcat(path_buffer, "/");
 		strcat(path_buffer, file_name);
 		strcat(path_buffer, "\0");
-		
+
 		if (stat(path_buffer, &file_path) == 0 && access(path_buffer, X_OK) == 0)
 		{
 			free(path_copy);
-			return(path_buffer);
+			return (path_buffer);
 		}
 		token = strtok(NULL, ":");
 	}
@@ -62,6 +62,33 @@ char *get_file_loc(char *path, char *file_name)
 		free(path_buffer);
 	return (NULL);
 }
+/**
+ * get_file_path - get the full path of the file
+ * @file_name: argument entered by user
+ *
+ * Return: The full path
+ **/
+char *get_file_path(char *file_name)
+{
+	char *path = getenv("PATH");
+	char *full_path;
 
+	if (slash_checker(file_name) &&
+			access(file_name, X_OK) == 0)
+		return (strdup(file_name));
 
-Solved the problem with git push
+	if (!path)
+	{
+		perror("Path can not be found");
+		return (NULL);
+	}
+	full_path = get_file_loc(path, file_name);
+
+	if (full_path == NULL)
+	{
+		write(2, file_name, strlen(file_name));
+		write(2, ": command not found\n", 19);
+		return (NULL);
+	}
+	return (full_path);
+}
