@@ -27,8 +27,6 @@
    shown again.
 
 ## Steps of the program
-    
-     The shell operates in a loop with the following steps:
 
    - Display Prompt: Prints the prompt #cisfun$ to indicate that the shell is ready to receive a command.
    - Read Input: Uses getline() to read the command line entered by the user.
