@@ -16,11 +16,8 @@
 ```bash
  $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ```
-```
-
-```
 ```bash
-./simple_shell
+ ./simple_shell
 ```
 
 ## How will it work ?
