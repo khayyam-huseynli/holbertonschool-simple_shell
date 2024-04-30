@@ -9,16 +9,18 @@
    using execve.
 
 ## Compilation
-   **To run the shell:**
+   To run the shell:
 
    First compile your program using the following compiling command:
 
-```gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+```bash
+ $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ```
 
     Then execute your program by:
  
-```./simple_shell
+```bash
+./simple_shell
 ```
 
 ## How will it work ?
