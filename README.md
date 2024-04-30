@@ -11,13 +11,13 @@
 ## Compilation
    To run the shell:
 
-   First compile your program using the following compiling command:
+   First compile and execute your program using the following steps of commands:
 
 ```bash
  $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ```
 ```
-  Then execute your program by:
+
 ```
 ```bash
 ./simple_shell
