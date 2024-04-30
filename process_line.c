@@ -8,7 +8,7 @@
  * Return: 0 on success, 1 on failure
  */
 
-int process_line(char *line)
+int process_line(char *line, char *envp[])
 {
 	char *cmds[MAX_CMD_LEN];
 	char *cmd;
