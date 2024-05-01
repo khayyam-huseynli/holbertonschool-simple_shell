@@ -19,8 +19,11 @@ int process_line(char *line)
 	cmd = strtok(line, " \n");
 	while (cmd != NULL)
 	{
-		cmds[num_cmds] = strdup(cmd);
-		num_cmds++;
+		if (strlen(cmd) > 0 && cmd[0] != ' ')
+		{
+			cmds[num_cmds] = strdup(cmd);
+			num_cmds++;
+		}
 		cmd = strtok(NULL, " \n");
 	}
 
@@ -32,8 +35,10 @@ int process_line(char *line)
 	argv[i] = NULL;
 
 	/** Execute the command with arguments */
-	execute_cmd(cmds[0], argv);
-
+	if (num_cmds > 0)
+	{
+		execute_cmd(cmds[0], argv);
+	}
 	/** Free the allocated memory */
 	for (i = 0; i < num_cmds; i++)
 	{
