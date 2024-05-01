@@ -12,10 +12,14 @@
 #define MAX_CMD_LEN 256
 #define MAX_ARGV_LEN 64
 
+extern char **environ;
+
 int execute_cmd(char *cmd, char **argv);
 int process_line(char *line);
 char *get_file_loc(char *path, char *file_name);
 int slash_checker(const char *str);
 char *get_file_path(char *file_name);
+
+char *_getenv(const char *name);
 
 #endif
