@@ -27,13 +27,23 @@ int process_line(char *line)
 		cmd = strtok(NULL, " \n");
 	}
 
+	 if (num_cmdов > 0 && strcmp(cmds[0], "env") == 0)
+   	 {
+        	print_env();
+        	for (i = 0; i < num_cmdов; i++)
+        	{
+            		free(cmds[i]); 
+        	}
+       		return 0; 
+    }
+	
 	/** Prepare the arguments for the command */
 	for (i = 0; i < num_cmds; i++)
 	{
 		argv[i] = cmds[i];
 	}
 	argv[i] = NULL;
-
+	
 	/** Execute the command with arguments */
 	if (num_cmds > 0)
 	{
