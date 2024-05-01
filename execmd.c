@@ -7,13 +7,9 @@
  * Return: 0 on success, 1 on failure
  */
 
-int execute_cmd(char *cmd)
+int execute_cmd(char *cmd, char **argv)
 {
-	char *argv[2];
 	int status;
-
-	argv[0] = cmd;
-	argv[1] = NULL;
 
 	if (fork() == 0)
 	{

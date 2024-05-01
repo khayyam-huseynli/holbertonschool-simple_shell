@@ -11,6 +11,7 @@
 int process_line(char *line)
 {
 	char *cmds[MAX_CMD_LEN];
+	char *argv[MAX_ARGV_LEN];
 	char *cmd;
 	int num_cmds = 0, i;
 
@@ -23,12 +24,21 @@ int process_line(char *line)
 		cmd = strtok(NULL, " \n");
 	}
 
-	/** Execute each command */
+	/** Prepare the arguments for the command */
 	for (i = 0; i < num_cmds; i++)
 	{
-		execute_cmd(cmds[i]);
+		argv[i] = cmds[i];
+	}
+	argv[i] = NULL;
+
+	/** Execute the command with arguments */
+	execute_cmd(cmds[0], argv);
+
+	/** Free the allocated memory */
+	for (i = 0; i < num_cmds; i++)
+	{
 		free(cmds[i]);
 	}
-	
+
 	return (0);
 }
