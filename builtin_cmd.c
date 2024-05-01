@@ -5,7 +5,7 @@
  * @input: input value to be handled
  * @status: exit status of the code
  **/
-void handle_exit(int *input, int status)
+void handle_exit(char *input, int status)
 {
 	free(input);
 	exit(status);
