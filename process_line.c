@@ -27,10 +27,10 @@ int process_line(char *line)
 		cmd = strtok(NULL, " \n");
 	}
 
-	 if (num_cmdов > 0 && strcmp(cmds[0], "env") == 0)
+	 if (num_cmds > 0 && strcmp(cmds[0], "env") == 0)
    	 {
         	print_env();
-        	for (i = 0; i < num_cmdов; i++)
+        	for (i = 0; i < num_cmds; i++)
         	{
             		free(cmds[i]); 
         	}
