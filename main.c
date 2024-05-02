@@ -13,6 +13,7 @@ int main(int argc, char **argv)
 	size_t len = 0;
 	ssize_t read;
 	int interactive = isatty(STDIN_FILENO);
+	int err_stat = 0;
 	(void)argc;
 
 	while (1)
@@ -29,8 +30,8 @@ int main(int argc, char **argv)
 			exit(EXIT_SUCCESS);
 		}
 
-		process_line(line, name);
+		err_stat = process_line(line, name);
 	}
 	free(line);
-	return (0);
+	return (err_stat);
 }
