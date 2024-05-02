@@ -38,7 +38,7 @@ int process_line(char *line, char *name)
 	 }
 	 if (num_cmds > 0 && strcmp(cmds[0], "exit") == 0)
 	 {
-		return (shell_exit(cmds, line));
+		return (0);
 	 }
 	
 	/** Prepare the arguments for the command */
