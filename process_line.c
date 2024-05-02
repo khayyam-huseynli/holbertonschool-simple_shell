@@ -13,7 +13,7 @@ int process_line(char *line, char *name)
 	char *cmds[MAX_CMD_LEN];
 	char *argv[MAX_ARGV_LEN];
 	char *cmd;
-	int num_cmds = 0, i, err_stat;
+	int num_cmds = 0, i, err_stat = 0;
 
 	/** Tokenize the line into commands and store them in cmds */
 	cmd = strtok(line, " \n");
@@ -58,9 +58,6 @@ int process_line(char *line, char *name)
 	{
 		free(cmds[i]);
 	}
+	return (err_stat);
 
-	if (err_stat == 127)
-		return (127);
-	else
-		return (0);
 }
