@@ -13,7 +13,7 @@ int process_line(char *line, char *name)
 	char *cmds[MAX_CMD_LEN];
 	char *argv[MAX_ARGV_LEN];
 	char *cmd;
-	int num_cmds = 0, i;
+	int num_cmds = 0, i, err_stat;
 
 	/** Tokenize the line into commands and store them in cmds */
 	cmd = strtok(line, " \n");
@@ -47,7 +47,7 @@ int process_line(char *line, char *name)
 	/** Execute the command with arguments */
 	if (num_cmds > 0)
 	{
-		execute_cmd(cmds[0], argv, name);
+		err_stat = execute_cmd(cmds[0], argv, name);
 	}
 	/** Free the allocated memory */
 	for (i = 0; i < num_cmds; i++)
@@ -55,5 +55,8 @@ int process_line(char *line, char *name)
 		free(cmds[i]);
 	}
 
-	return (0);
+	if (err_stat == 127)
+		return (127);
+	else
+		return (0);
 }
