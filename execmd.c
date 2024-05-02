@@ -15,7 +15,7 @@ int execute_cmd(char *cmd, char **argv, char *name)
 	if (fullpath == NULL || *fullpath == '\0')
 	{
 		fprintf(stderr, "%s: 1: %s: not found\n", name, cmd);
-		exit(127);
+		return (127);
 	}
 
 	if (fork() == 0)
