@@ -34,8 +34,12 @@ int process_line(char *line, char *name)
         	{
             		free(cmds[i]); 
         	}
-       		return 0; 
-    }
+       		return 0;
+	 }
+	 if (num_cmds > 0 && strcmp(cmds[0], "exit") == 0)
+	 {
+		return (shell_exit(cmds, line));
+	 }
 	
 	/** Prepare the arguments for the command */
 	for (i = 0; i < num_cmds; i++)
