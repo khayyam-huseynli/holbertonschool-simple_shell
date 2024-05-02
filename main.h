@@ -19,6 +19,8 @@ int process_line(char *line, char *name);
 char *get_file_loc(char *path, char *file_name);
 int slash_checker(const char *str);
 char *get_file_path(char *file_name);
+void handle_exit(char *input, int status);
+int shell_exit(char **args, char *input);
 void print_env(void);
 
 char *_getenv(const char *name);
