@@ -37,7 +37,7 @@ int shell_exit(char **args, char *input)
 				handle_exit(input, 2);
 				return (1);
 			}
-			exit_status = exit_status * 10 + (exit_status - '0');
+			exit_status = exit_status * 10 + (status_str[i]- '0');
 		}
 		handle_exit(input, exit_status);
 	}
