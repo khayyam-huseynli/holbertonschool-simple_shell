@@ -7,15 +7,15 @@
  * Return: 0 on success, 1 on failure
  */
 
-int execute_cmd(char *cmd, char **argv)
+int execute_cmd(char *cmd, char **argv, char *name)
 {
 	int status;
 	char *fullpath = get_file_path(cmd);
 
-	if (fullpath == NULL)
+	if (fullpath == NULL || *fullpath == '\0')
 	{
-		fprintf(stderr, "%s: command not found\n", cmd);
-		return (-1);
+		fprintf(stderr, "%s: 1: %s: not found\n", name, cmd);
+		exit(127);
 	}
 
 	if (fork() == 0)

@@ -14,8 +14,8 @@
 
 extern char **environ;
 
-int execute_cmd(char *cmd, char **argv);
-int process_line(char *line);
+int execute_cmd(char *cmd, char **argv, char *name);
+int process_line(char *line, char *name);
 char *get_file_loc(char *path, char *file_name);
 int slash_checker(const char *str);
 char *get_file_path(char *file_name);

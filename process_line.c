@@ -8,7 +8,7 @@
  * Return: 0 on success, 1 on failure
  */
 
-int process_line(char *line)
+int process_line(char *line, char *name)
 {
 	char *cmds[MAX_CMD_LEN];
 	char *argv[MAX_ARGV_LEN];
@@ -47,7 +47,7 @@ int process_line(char *line)
 	/** Execute the command with arguments */
 	if (num_cmds > 0)
 	{
-		execute_cmd(cmds[0], argv);
+		execute_cmd(cmds[0], argv, name);
 	}
 	/** Free the allocated memory */
 	for (i = 0; i < num_cmds; i++)

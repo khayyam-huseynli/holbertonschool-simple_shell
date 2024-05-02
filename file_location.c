@@ -83,12 +83,5 @@ char *get_file_path(char *file_name)
 		return (NULL);
 	}
 	full_path = get_file_loc(path, file_name);
-
-	if (full_path == NULL)
-	{
-		write(2, file_name, strlen(file_name));
-		write(2, ": command not found\n", 19);
-		return (NULL);
-	}
 	return (full_path);
 }
