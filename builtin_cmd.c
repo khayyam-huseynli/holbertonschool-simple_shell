@@ -5,12 +5,13 @@
  * @input: input value to be handled
  * @status: exit status of the code
  **/
+/**
 void handle_exit(char *input, int status)
 {
 	free(input);
 	exit(status);
 }
-
+**/
 /**
  * shell_exit - handle the exit status
  * @args: arguments to be entered
@@ -21,7 +22,8 @@ void handle_exit(char *input, int status)
 
 int shell_exit(char **args, char *input)
 {
-	char *status_str;
+	/**
+	 * char *status_str;
 	int exit_status;
 	int i;
 
@@ -46,4 +48,12 @@ int shell_exit(char **args, char *input)
 		handle_exit(input, 127);
 	}
 	return (1);
+	**/
+	if (args[1] != NULL)
+	{
+		printf("exit: too many arguments\n");
+		return (1);
+	}
+	free(input);
+	exit (0);
 }
