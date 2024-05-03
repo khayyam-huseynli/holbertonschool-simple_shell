@@ -54,6 +54,12 @@ int shell_exit(char **args, char *input)
 		printf("exit: too many arguments\n");
 		return (1);
 	}
+	if (input != NULL && input[0] != '\0')
+		    {
+			            printf("exit: command not found\n");
+				    return (1);
+		    }
+
 	free(input);
 	exit (2);
 }
