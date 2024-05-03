@@ -77,9 +77,8 @@ char *get_file_path(char *file_name)
 			access(file_name, X_OK) == 0)
 		return (strdup(file_name));
 
-	if (!path)
+	if (!path || path[0] == '\0')
 	{
-		perror("Path can not be found");
 		return (NULL);
 	}
 	full_path = get_file_loc(path, file_name);
