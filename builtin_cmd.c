@@ -55,5 +55,5 @@ int shell_exit(char **args, char *input)
 		return (1);
 	}
 	free(input);
-	exit (0);
+	exit (2);
 }
