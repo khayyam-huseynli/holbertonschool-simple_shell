@@ -14,15 +14,16 @@
 
 extern char **environ;
 
-int execute_cmd(char *cmd, char **argv, char *name);
-int process_line(char *line, char *name);
+void execute_cmd(char *cmd, char *argv[]);
+int process_line(char *line, char *args[]);
 char *get_file_loc(char *path, char *file_name);
 int slash_checker(const char *str);
 char *get_file_path(char *file_name);
 void handle_exit(char *input, int status);
 int shell_exit(char **args, char *input);
+int handle_builtin_commands(char **args, int num_args, char *input);
+char *read_input(void);
 void print_env(void);
-
 char *_getenv(const char *name);
 
 #endif
