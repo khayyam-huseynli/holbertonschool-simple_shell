@@ -6,8 +6,9 @@
  * Return: 0 on success, 1 on failure
  */
 
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
+	/**
 	char *line = NULL;
 	char *name = argv[0];
 	size_t len = 0;
@@ -34,4 +35,19 @@ int main(int argc, char **argv)
 	}
 	free(line);
 	return (err_stat);
+	**/
+	char *input_buffer;
+	(void)argc;
+
+	while (1)
+	{
+		if (isatty(STDIN_FILENO))
+		{
+			write(STDOUT_FILENO, "Xshell> ", 8);
+		}
+		input_buffer = read_input();
+		execute_cmd(input_buffer, argv);
+		free(input_buffer);
+	}
+	return (0);
 }
