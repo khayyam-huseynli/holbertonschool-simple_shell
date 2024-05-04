@@ -16,12 +16,18 @@ void execute_cmd(char *cmd, char *argv[])
 	shell_name = argv[0];
 	num_args = process_line(cmd, args);
 
-
 	if (num_args == 0)
 		return;
 	if (handle_builtin_commands(args, num_args, cmd) == 1)
 		return;
 	path = get_file_path(args[0]);
+
+	if (!path)
+	{
+		fprintf(stderr, "%s: 1: %s: not found\n", shell_name, cmd);
+		free(path);
+		exit(127);
+	}
 	child_pid = fork();
 
 	if (child_pid == -1)
@@ -32,12 +38,7 @@ void execute_cmd(char *cmd, char *argv[])
 	}
 	if (child_pid == 0)
 	{
-		if (execve(path, args, NULL) == -1)
-		{
-			fprintf(stderr, "%s: 1: %s: not found\n", shell_name, cmd);
-			free(path);
-			exit(127);
-		}
+		execve(path, args, NULL);
 	}
 	else
 	{
