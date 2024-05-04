@@ -73,7 +73,7 @@ char *get_file_path(char *file_name)
 	char *path = _getenv("PATH");
 	char *full_path;
 
-	if ((!path || path[0] == '\0') ||
+	if ((!path || path[0] == '\0') &&
 			!slash_checker(file_name))
 		return (NULL);
 
