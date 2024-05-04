@@ -34,10 +34,8 @@ void execute_cmd(char *cmd, char *argv[])
 	{
 		if (execve(path, args, NULL) == -1)
 		{
-			write(2, shell_name, strlen(shell_name));
-			write(2, ": 1: ", 5);
-			write(2, args[0], strlen(args[0]));
-			write(2, ": not found\n", 12);
+			fprintf(stderr, "%s: 1: %s: not found\n", shell_name, cmd);
+			free(path);
 			exit(127);
 		}
 	}
@@ -47,27 +45,3 @@ void execute_cmd(char *cmd, char *argv[])
 	}
 	free(path);
 }
-
-
-
-	/**
-	
-	if (fullpath == NULL || *fullpath == '\0')
-	{
-		fprintf(stderr, "%s: 1: %s: not found\n", name, cmd);
-		free(fullpath);
-		return (127);
-	}
-	if (fork() == 0)
-	{
-		execve(fullpath, argv, NULL);
-		perror(cmd);
-		exit(EXIT_FAILURE);
-	}
-	else
-	{
-		wait(&status);
-	}
-	free(fullpath);
-	return (0);
-	**/

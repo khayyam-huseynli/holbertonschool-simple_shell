@@ -4,7 +4,7 @@
 ![logo](https://opensource.com/sites/default/files/lead-images/bash_command_line.png)
 
 ## Description
-   As the first trimester final project our purpose on that, is to create simple UNIX command-line interpreter (shell) that displays a prompt and executes simple 
+   As the first trimester final project our purpose on that, is to create simple UNIX command-line interpreter (shell) that displays a prompt and executes simple
    commands entered by the user. This project demonstrates the basic functionality of a shell, such as reading user input, forking processes, and executing commands
    using execve.
 

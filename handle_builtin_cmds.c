@@ -1,5 +1,13 @@
 #include "main.h"
 
+/**
+* handle_builtin_commands - handel builtin commands
+* @args: list of arguments
+* @num_args: number of arguments
+* @input: input value to be handled
+* Return: returns 0 on success 1 else
+*/
+
 int handle_builtin_commands(char **args, int num_args, char *input)
 {
 	(void)num_args;

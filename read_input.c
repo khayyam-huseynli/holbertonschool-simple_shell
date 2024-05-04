@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+* read_input - reads user input
+* Return: returns pointer to getted input string
+*/
+
 char *read_input(void)
 {
 	char *input_buffer;

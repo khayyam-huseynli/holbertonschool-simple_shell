@@ -32,7 +32,7 @@ Usage: exit. No arguments are passed to the built-in exit command.
 hsh implements the env built-in command, which prints the current environment.
 .SH EXAMPLES
 .PP
-.B julien@ubuntu:~/shell$ ./hsh 
+.B julien@ubuntu:~/shell$ ./hsh
 #cisfun$ ls
 ./shell: No such file or directory
 #cisfun$ /bin/ls
