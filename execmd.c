@@ -25,7 +25,7 @@ void execute_cmd(char *cmd, char *argv[])
 	if (!path)
 	{
 		fprintf(stderr, "%s: 1: %s: not found\n", shell_name, cmd);
-		free(path);
+		free(cmd);
 		exit(127);
 	}
 	child_pid = fork();
