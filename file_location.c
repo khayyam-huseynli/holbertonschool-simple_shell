@@ -7,7 +7,7 @@
  **/
 int slash_checker(const char *str)
 {
-	if (str != NULL && str[0] == '/')
+	if (str != NULL && strchr(str, '/') != NULL)
 	{
 		return (1);
 	}
