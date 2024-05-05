@@ -73,8 +73,8 @@ char *get_file_path(char *file_name)
 	char *path = _getenv("PATH");
 	char *full_path;
 
-	if (path == NULL && (!slash_checker(file_name) &&
-			access(file_name, X_OK) != 0))
+	if (!path && !slash_checker(file_name) &&
+			access(file_name, X_OK) != 0)
 		return (NULL);
 
 	if (slash_checker(file_name) &&
