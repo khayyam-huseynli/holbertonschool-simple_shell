@@ -28,6 +28,9 @@ char *get_file_loc(char *path, char *file_name)
 	struct stat file_path;
 	char *path_buffer = NULL;
 
+	if (!path)
+		return (NULL);
+
 	path_copy = strdup(path);
 	token = strtok(path_copy, ":");
 
@@ -72,10 +75,6 @@ char *get_file_path(char *file_name)
 {
 	char *path = _getenv("PATH");
 	char *full_path;
-
-	if (!path && !slash_checker(file_name) &&
-			access(file_name, X_OK) != 0)
-		return (NULL);
 
 	if (slash_checker(file_name) &&
 			access(file_name, X_OK) == 0)
