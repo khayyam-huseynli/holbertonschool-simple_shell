@@ -8,14 +8,11 @@
  * Return: exit status, or 1
  **/
 
-int shell_exit(char **args, char *input)
+void shell_exit(int status)
 {
-	if (args[1] != NULL)
-	{
-		printf("exit: too many arguments\n");
-		return (1);
-	}
 
-	free(input);
-	exit(0);
+	if (WIFEXITED(status))
+		exit(WEXITSTATUS(status));
+	else
+		exit(0);
 }

@@ -6,7 +6,7 @@
  * @argv: the arguments of command
  * Return: 0 on success, 1 on failure
  */
-void execute_cmd(char *cmd, char *argv[])
+int execute_cmd(char *cmd, char *argv[])
 {
 	int status, num_args;
 	char *args[10];
@@ -17,9 +17,8 @@ void execute_cmd(char *cmd, char *argv[])
 	num_args = process_line(cmd, args);
 
 	if (num_args == 0)
-		return;
-	if (handle_builtin_commands(args, num_args, cmd) == 1)
-		return;
+		return (127);
+	handle_builtin_commands(args, status);
 	path = get_file_path(args[0]);
 
 	if (!path)
@@ -38,11 +37,13 @@ void execute_cmd(char *cmd, char *argv[])
 	}
 	if (child_pid == 0)
 	{
-		execve(path, args, NULL);
+		if (execve(path, args, NULL) == -1)
+			return (2);
 	}
 	else
 	{
 		wait(&status);
 	}
 	free(path);
+	return (0);
 }
