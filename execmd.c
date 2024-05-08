@@ -18,7 +18,7 @@ int execute_cmd(char *cmd, char *argv[])
 
 	if (num_args == 0)
 		return (127);
-	handle_builtin_commands(args, status);
+	handle_builtin_commands(cmd, args, status);
 	path = get_file_path(args[0]);
 
 	if (!path)

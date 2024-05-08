@@ -7,11 +7,12 @@
 * Return: returns 0 on success 1 else
 */
 
-int handle_builtin_commands(char **args, int status)
+int handle_builtin_commands(char *cmd, char **args, int status)
 {
 
 	if (strcmp(args[0], "exit") == 0)
 	{
+		free(cmd);
 		shell_exit(status);
 	}
 	else if (strcmp(args[0], "env") == 0)
