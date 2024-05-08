@@ -3,8 +3,7 @@
 /**
 * handle_builtin_commands - handel builtin commands
 * @args: list of arguments
-* @num_args: number of arguments
-* @input: input value to be handled
+* @status: status code
 * Return: returns 0 on success 1 else
 */
 

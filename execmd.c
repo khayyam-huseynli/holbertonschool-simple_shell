@@ -8,7 +8,7 @@
  */
 int execute_cmd(char *cmd, char *argv[])
 {
-	int status, num_args;
+	int status = 0, num_args;
 	char *args[10];
 	pid_t child_pid;
 	char *shell_name, *path;

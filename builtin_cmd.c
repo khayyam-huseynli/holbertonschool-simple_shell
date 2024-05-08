@@ -2,10 +2,7 @@
 
 /**
  * shell_exit - handle the exit status
- * @args: arguments to be entered
- * @input: checks the status of exit
- *
- * Return: exit status, or 1
+ * @status: status code
  **/
 
 void shell_exit(int status)
