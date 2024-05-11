@@ -13,7 +13,7 @@ hsh launches the shell interface where users can input commands for execution. U
 .SH FUNCTIONALITY
 hsh provides the following functionality:
 .IP "\fB1. Display a prompt\fR"
-hsh displays the prompt "#cisfun$" (it can be change based on your prompt) and waits for the user to type a command. A command line always ends with a new line.
+hsh displays the prompt "Xshell>" (it can be change based on your prompt) and waits for the user to type a command. A command line always ends with a new line.
 .IP "\fB2. Command Execution\fR"
 hsh executes the entered command.
 .IP "\fB3. Handle Errors\fR"
@@ -33,13 +33,13 @@ hsh implements the env built-in command, which prints the current environment.
 .SH EXAMPLES
 .PP
 .B julien@ubuntu:~/shell$ ./hsh
-#cisfun$ ls
+Xshell> ls
 ./shell: No such file or directory
-#cisfun$ /bin/ls
+Xshell> /bin/ls
 barbie_j       env-main.c  exec.c  fork.c  pid.c  ppid.c    prompt   prompt.c  shell.c  stat.c         wait
 env-environ.c  exec    fork    mypid   ppid   printenv  promptc  shell     stat test_scripting.sh  wait.c
-#cisfun$ exit
-#cisfun$ julien@ubuntu:~/shell$
+Xshell> exit
+Xshell> julien@ubuntu:~/shell$
 .PP
 .B julien@ubuntu:~/shell$ echo "/bin/ls" | ./hsh
 barbie_j       env-main.c  exec.c  fork.c  pid.c  ppid.c    prompt   prompt.c  shell.c  stat.c         wait
