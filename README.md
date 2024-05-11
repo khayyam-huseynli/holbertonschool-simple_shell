@@ -22,13 +22,13 @@
 
 ## How will it work ?
 
-   After the execution of your program shell displays a prompt #cisfun$, awaiting user input.
+   After the execution of your program shell displays a prompt Xshell> (in our case, but can be changed based on your prompt), awaiting user input.
    The user can enter simple commands, and the shell will attempt to execute them. If the command cannot be executed, an error message is displayed, and the prompt is
    shown again.
 
 ## Steps of the program
 
-   - Display Prompt: Prints the prompt #cisfun$ to indicate that the shell is ready to receive a command.
+   - Display Prompt: Prints the prompt Xshell> to indicate that the shell is ready to receive a command.
    - Read Input: Uses getline() to read the command line entered by the user.
    - Handle EOF: If Ctrl+D (EOF) is entered, the shell exits.
    - Fork Process: Creates a new process using fork().
