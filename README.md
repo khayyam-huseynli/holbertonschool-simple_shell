@@ -89,6 +89,9 @@ $
 - Press Ctrl+D to trigger the "end-of-file" condition.
 - Type exit and press Enter (this will likely result in an error message since exit isn't implemented as a built-in command, but it indicates the intention to exit).
 
+## Flowchart
+![Flowchart diagram for shell](https://github.com/khayyam-huseynli/holbertonschool-simple_shell/blob/main/shell_flowchart_diagram.drawio.png)
+
 ## Collaborators of the project
 
 - [Khayyam Huseynli](https://github.com/khayyam-huseynli)
